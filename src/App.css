@@ -1,5 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
 .app-wrapper {
-    
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .header {
@@ -12,9 +30,10 @@
 }
 
 .nav {
+    width: 25%;
     background-color: burlywood;
 }
 
 .content {
-
+    width: 75%;
 }

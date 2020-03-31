@@ -12,8 +12,8 @@ const Profile = () => {
                     <div>post 2</div>
                 </div>
             </div>
-        </div> 
+        </div>
     );
-}
+};
 
 export default Profile;

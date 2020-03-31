@@ -2,8 +2,10 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <p>navbar</p>   
+        <aside className="nav">
+            <p>navbar</p>
+        </aside>
     );
-}
+};
 
 export default Navbar;
