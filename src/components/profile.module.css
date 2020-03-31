@@ -1,0 +1,13 @@
+.content {
+    width: 75%;
+    background: cornflowerblue;
+}
+
+.imgBx img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.item {
+    color: greenyellow;
+}

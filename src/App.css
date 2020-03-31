@@ -4,6 +4,11 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+    color: #000;
+}
+
+body {
+    font-family: sans-serif;
 }
 
 img {
@@ -18,22 +23,4 @@ img {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.header {
-    width: 100%;
-    background: green;
-}
-
-.header img {
-    width: 20px;
-}
-
-.nav {
-    width: 25%;
-    background-color: burlywood;
-}
-
-.content {
-    width: 75%;
 }
