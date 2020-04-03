@@ -20,7 +20,8 @@ img {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+}
+
+.row {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
