@@ -6,7 +6,7 @@ const Post = (props) => {
         <li className={s.item}>
             <img src="https://icons-for-free.com/iconfiles/png/512/avatar+human+people+profile+user+icon-1320168139431219590.png" alt="avatar" />
             <p>{props.message}</p>
-            <span>like</span>
+            <span>like {props.likesCount}</span>
         </li>
     );
 };

@@ -13,8 +13,8 @@ const MyPosts = () => {
             </form>
 
             <ul className={s.posts}>
-                <Post message="Hi, how are you?" />
-                <Post message="I'ts my first post" />
+                <Post message="Hi, how are you?" likesCount="10" />
+                <Post message="I'ts my first post" likesCount="0" />
             </ul>
         </div>
     );
