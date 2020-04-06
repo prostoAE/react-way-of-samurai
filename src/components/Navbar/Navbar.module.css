@@ -13,6 +13,6 @@
     font-size: 18px;
 }
 
-.item.active a {
+.item a.activeLink  {
     color: gold;
 }
