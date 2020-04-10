@@ -1,4 +1,26 @@
 .content {
     width: 75%;
     background: cornflowerblue;
+    display: flex;
+}
+
+.dialoglist {
+    padding: 10px;
+    min-width: 200px;
+}
+
+.dialogitem {
+    cursor: pointer;
+}
+
+.dialogitem.active {
+    color: gold;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+
 }
