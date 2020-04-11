@@ -1,0 +1,8 @@
+.imgBx img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.descriptionBlock {
+    padding: 10px;
+}
