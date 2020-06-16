@@ -1,35 +1,16 @@
 import React from 'react';
 import s from './Users.module.css';
+import * as axios from 'axios';
+import userPhoto from '../../assets/images/user-default.png'
 
 let Users = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png',
-                followed: false,
-                fullName: 'Dmitry',
-                status: 'i`m a boss',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: 2,
-                photoUrl: 'https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png',
-                followed: true,
-                fullName: 'Oleg',
-                status: 'i`m a looser',
-                location: {city: 'Moscow', country: 'Russia'}
-            },
-            {
-                id: 3,
-                photoUrl: 'https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png',
-                followed: false,
-                fullName: 'Andrew',
-                status: 'Just fun',
-                location: {city: 'Ukraine', country: 'Kiyv'}
-            },
-        ]);
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                props.setUsers(response.data.items);
+            });
     }
 
     return <div className={s.content}>
@@ -37,7 +18,8 @@ let Users = (props) => {
             props.users.map(user => <div key={user.id}>
                 <span>
                     <div>
-                        <img src={user.photoUrl} className={s.userPhoto} alt="avatar"/>
+                        <img src={user.photos.small != null ? user.photos.small : userPhoto} className={s.userPhoto}
+                             alt="avatar"/>
                     </div>
                     <div>
                         {user.followed
@@ -47,12 +29,12 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{user.fullName}</div>
+                        <div>{user.name}</div>
                         <div>{user.status}</div>
                     </span>
                     <span>
-                        <div>{user.location.country}</div>
-                        <div>{user.location.city}</div>
+                        <div>{'user.location.country'}</div>
+                        <div>{'user.location.city'}</div>
                     </span>
                 </span>
             </div>)
