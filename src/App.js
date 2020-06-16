@@ -7,7 +7,7 @@ import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 
-function App(props) {
+function App() {
     return (
         <div className="app-wrapper">
             <Header/>
