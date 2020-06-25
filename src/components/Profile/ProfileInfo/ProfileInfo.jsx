@@ -1,7 +1,13 @@
 import React, {Fragment} from 'react';
 import s from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader/Preloader';
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
+    if (!props.profile) {
+        return <Preloader/>
+    }
+
     return (
         <Fragment>
             <div className={s.imgBx}>
@@ -9,7 +15,10 @@ const ProfileInfo = () => {
                     src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                     alt="foto"/>
             </div>
-            <div className={s.descriptionBlock}>ava + description</div>
+            <div className={s.descriptionBlock}>
+                <img src={props.profile.photos.large} alt=""/>
+                {props.profile.fullName}
+            </div>
         </Fragment>
     );
 };
