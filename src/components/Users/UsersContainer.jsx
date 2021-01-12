@@ -5,7 +5,8 @@ import {
     setUsers,
     setTotalUsersCount,
     toggleIsFetching,
-    unfollow, toggleFollowingProgress
+    unfollow,
+    toggleFollowingProgress
 } from '../../redux/users-reducer';
 import React, {Component} from 'react';
 import Users from './Users';
