@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Users.module.css';
 import userPhoto from '../../assets/images/user-default.png'
 import {NavLink} from 'react-router-dom';
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
 
@@ -49,7 +48,7 @@ let Users = (props) => {
                             }>Follow</button>}
                     </div>
                 </span>
-                    <span>
+                <span>
                     <span>
                         <div>{user.name}</div>
                         <div>{user.status}</div>
