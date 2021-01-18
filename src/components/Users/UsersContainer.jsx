@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class UsersContainer extends Component {
 
@@ -48,34 +49,14 @@ let mapStateToProps = (state) => {
     }
 };
 
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setUsersTotalCountAC(totalCount))
-        },
-        toggleIsFetchingAC: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching));
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+            follow,
+            unfollow,
+            setCurrentPage,
+            toggleFollowingProgress,
+            getUsers
         }
-    }
-};*/
-
-export default withAuthRedirect(connect(mapStateToProps, {
-        follow,
-        unfollow,
-        setCurrentPage,
-        toggleFollowingProgress,
-        getUsers
-    }
-)(UsersContainer))
+    ),
+)(UsersContainer);
