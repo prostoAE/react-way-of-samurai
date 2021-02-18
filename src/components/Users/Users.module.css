@@ -8,14 +8,3 @@
     height: auto;
 }
 
-.pagination {
-    display: flex;
-}
-
-.pagination li {
-    margin-right: 5px;
-}
-
-.active {
-    font-weight: bold;
-}
