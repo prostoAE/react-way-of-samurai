@@ -11,9 +11,9 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
-    pageSize: 5,
-    totalUsersCount: 10,
-    currentPage: 100,
+    pageSize: 10,
+    totalUsersCount: 0,
+    currentPage: 1,
     isFetching: true,
     followingInProgress: []
 };
@@ -72,7 +72,7 @@ export const requestUsers = (page, pageSize) => {
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));
         // this.props.setTotalUsersCount(response.data.totalCount); //Вызывает ошибку из-за большого обьема данных (> 100)
-        dispatch(setTotalUsersCount(10));
+        dispatch(setTotalUsersCount(data.totalCount));
     }
 };
 
