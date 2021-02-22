@@ -1,4 +1,4 @@
-import React, {Component, Suspense} from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -52,7 +52,7 @@ let AppContainer = compose(
 const SamuraiJSApp = () => {
     return (
         <React.StrictMode>
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Provider store={store}>
                     <AppContainer/>
                 </Provider>
