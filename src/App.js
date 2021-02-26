@@ -59,6 +59,6 @@ const SamuraiJSApp = () => {
             </BrowserRouter>
         </React.StrictMode>
     )
-}
+};
 
 export default SamuraiJSApp;
