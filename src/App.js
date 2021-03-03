@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import UsersContainer from './components/Users/UsersContainer';
@@ -16,8 +16,18 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 class App extends Component {
+    catchAllUnhandledErrors = (reason, promise) => {
+        alert('Some error occurred');
+        // console.log(promiseRejectionEvent);
+    };
+
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
     }
 
     render() {
@@ -30,10 +40,14 @@ class App extends Component {
                 <HeaderContainer/>
                 <div className="row">
                     <Navbar/>
-                    <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
-                    <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
-                    <Route path="/users" render={() => <UsersContainer/>}/>
-                    <Route path="/login" render={() => <LoginPage/>}/>
+                    <Switch>
+                        <Route exact path="/" render={() => <Redirect to="/profile"/>}/>
+                        <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                        <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                        <Route path="/users" render={() => <UsersContainer/>}/>
+                        <Route path="/login" render={() => <LoginPage/>}/>
+                        <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
+                    </Switch>
                 </div>
             </div>
         );
